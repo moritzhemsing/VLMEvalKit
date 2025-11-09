@@ -266,17 +266,18 @@ def main():
         if use_config:
             model = build_model_from_config(cfg['model'], model_name, args.use_vllm)
             
-            # [PRUNING]
-            retain = 0.5
-            K = int(model.processor.image_seq_len * retain)
-            model.processor.image_seq_len = K
-            def prune_visual_hook(module, inputs, outputs):
-                idx = torch.randperm(outputs.shape[1])[:K]
-                pruned = outputs[:, idx]
-                print('Randomly pruned!')
-                return pruned
-            vision_encoder = model.model.connector
-            handle = vision_encoder.register_forward_hook(prune_visual_tokens_hook)
+        # [PRUNING]
+        retain = 0.5
+        K = int(model.processor.image_seq_len * retain)
+        model.processor.image_seq_len = K
+        def prune_visual_hook(module, inputs, outputs):
+            idx = torch.randperm(outputs.shape[1])[:K]
+            pruned = outputs[:, idx]
+            print('Randomly pruned!')
+            raise Exception('TEST')
+            return pruned
+        vision_encoder = model.model.connector
+        handle = vision_encoder.register_forward_hook(prune_visual_tokens_hook)
 
         for _, dataset_name in enumerate(args.data):
             if WORLD_SIZE > 1:
