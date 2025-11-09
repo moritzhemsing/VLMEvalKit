@@ -26,7 +26,7 @@ class SmolVLM(BaseModel):
         retain = 0.5
         K = int(self.processor.image_seq_len * retain)
         self.processor.image_seq_len = K
-        def prune_visual_hook(module, inputs, outputs):
+        def prune_visual_tokens_hook(module, inputs, outputs):
             idx = torch.randperm(outputs.shape[1])[:K]
             pruned = outputs[:, idx]
             print('Randomly pruned!')
