@@ -22,6 +22,19 @@ class SmolVLM(BaseModel):
         self.model = Idefics3ForConditionalGeneration.from_pretrained(
             model_path, torch_dtype=torch.float32, device_map="cuda"
         )
+        # [PRUNING]
+        retain = 0.5
+        K = int(processor.image_seq_len * retain)
+        processor.image_seq_len = K
+        def prune_visual_hook(module, inputs, outputs):
+            idx = torch.randperm(outputs.shape[1])[:K]
+            pruned = outputs[:, idx]
+            print('Randomly pruned!')
+            #raise Exception('TEST')
+            return pruned
+        vision_encoder = model.model.connector
+        handle = vision_encoder.register_forward_hook(prune_visual_tokens_hook)
+        
         kwargs_default = {"max_new_tokens": 2048, "use_cache": True}
         kwargs_default.update(kwargs)
         self.kwargs = kwargs_default
