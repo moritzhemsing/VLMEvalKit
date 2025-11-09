@@ -273,6 +273,7 @@ def main():
             def prune_visual_hook(module, inputs, outputs):
                 idx = torch.randperm(outputs.shape[1])[:K]
                 pruned = outputs[:, idx]
+                print('Randomly pruned!')
                 return pruned
             vision_encoder = model.model.connector
             handle = vision_encoder.register_forward_hook(prune_visual_tokens_hook)
