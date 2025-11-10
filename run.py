@@ -202,6 +202,7 @@ You can launch the evaluation by setting either --data and --model or --config.
     args = parser.parse_args()
     return args
 
+# [PRUNING]
 def get_args():
     global ARGS
     if ARGS is None:
@@ -211,6 +212,7 @@ def get_args():
 
 def main():
     logger = get_logger('RUN')
+    # [PRUNING]
     args = get_args()
     use_config, cfg = False, None
     if args.config is not None:
@@ -507,5 +509,7 @@ def main():
 
 
 if __name__ == '__main__':
+    global ARGS
+    ARGS = None
     load_env()
     main()
