@@ -29,9 +29,14 @@ class SmolVLM(BaseModel):
         print('VISUAL TOKENS AFTER PRUNING', K)
         self.processor.image_seq_len = K
         def prune_visual_tokens_hook(module, inputs, outputs):
-            idx = torch.randperm(outputs.shape[1])[:K]
-            pruned = outputs[:, idx]
+            # idx = torch.randperm(outputs.shape[1])[:K]
+            # pruned = outputs[:, idx]
+
+            # sorted and different per batch
+            idx = torch.sort(torch.argsort(torch.rand(outputs.shape[0], outputs.shape[1], device=outputs.device), dim=-1)[:,:K], dim=-1).values
+            pruned = torch.gather(input=outputs, dim=1, index=idx.unsqueeze(-1).expand(-1, -1, outputs.shape[-1]))
             return pruned
+            
         vision_encoder = self.model.model.connector
         handle = vision_encoder.register_forward_hook(prune_visual_tokens_hook)
         
