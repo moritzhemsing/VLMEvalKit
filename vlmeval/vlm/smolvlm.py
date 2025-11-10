@@ -23,7 +23,7 @@ class SmolVLM(BaseModel):
             model_path, torch_dtype=torch.float32, device_map="cuda"
         )
         # [PRUNING]
-        from ...run import get_args
+        from ..run import get_args
         retain = get_args().pruning_retention
         K = int(self.processor.image_seq_len * retain)
         self.processor.image_seq_len = K
