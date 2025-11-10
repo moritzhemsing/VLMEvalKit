@@ -31,8 +31,6 @@ class SmolVLM(BaseModel):
         def prune_visual_tokens_hook(module, inputs, outputs):
             idx = torch.randperm(outputs.shape[1])[:K]
             pruned = outputs[:, idx]
-            print('Randomly pruned!')
-            #raise Exception('TEST')
             return pruned
         vision_encoder = self.model.model.connector
         handle = vision_encoder.register_forward_hook(prune_visual_tokens_hook)
