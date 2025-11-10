@@ -24,7 +24,7 @@ class SmolVLM(BaseModel):
         )
         # [PRUNING]
         from ...run import get_args
-        retain = get_args().pruning_retention_ratio
+        retain = get_args().pruning_retention
         K = int(self.processor.image_seq_len * retain)
         self.processor.image_seq_len = K
         def prune_visual_tokens_hook(module, inputs, outputs):
