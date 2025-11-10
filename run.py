@@ -196,6 +196,9 @@ You can launch the evaluation by setting either --data and --model or --config.
         '--use-vllm', action='store_true', help='use vllm to generate, the flag is only supported in Llama4 for now')
     parser.add_argument('--use-verifier', action='store_true', help='use verifier to evaluate')
 
+    # [PRUNING]
+    parser.add_argument('--pruning_retention', type=float, default=1., help='Proportion of tokens retained during pruning')
+
     args = parser.parse_args()
     return args
 
