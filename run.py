@@ -203,11 +203,9 @@ You can launch the evaluation by setting either --data and --model or --config.
     return args
 
 # [PRUNING]
+@lru_cache(maxsize=1)
 def get_args():
-    global ARGS
-    if ARGS is None:
-        ARGS = parse_args()
-    return ARGS
+    return parse_args()
 
 
 def main():
@@ -509,7 +507,5 @@ def main():
 
 
 if __name__ == '__main__':
-    global ARGS
-    ARGS = None
     load_env()
     main()
