@@ -23,7 +23,8 @@ class SmolVLM(BaseModel):
             model_path, torch_dtype=torch.float32, device_map="cuda"
         )
         # [PRUNING]
-        retain = 0.5
+        from ...run import get_args
+        retain = get_args().pruning_retention_ratio
         K = int(self.processor.image_seq_len * retain)
         self.processor.image_seq_len = K
         def prune_visual_tokens_hook(module, inputs, outputs):
