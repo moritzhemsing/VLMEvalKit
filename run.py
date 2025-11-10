@@ -202,10 +202,16 @@ You can launch the evaluation by setting either --data and --model or --config.
     args = parser.parse_args()
     return args
 
+def get_args():
+    global ARGS
+    if ARGS is None:
+        ARGS = parse_args()
+    return ARGS
+
 
 def main():
     logger = get_logger('RUN')
-    args = parse_args()
+    args = get_args()
     use_config, cfg = False, None
     if args.config is not None:
         assert args.data is None and args.model is None, '--data and --model should not be set when using --config'
