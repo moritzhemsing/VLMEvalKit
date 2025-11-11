@@ -8,7 +8,7 @@ We introduced a new flag `--pruning retention` to specify the retention ratio in
 
 Some Benchmarks may require setting an commercial API Key in the `.env` file. The provided `OPENAI_API_KEY`is expired.
 
-We also added `time_pruning.ipynb` which includes code snippets we ran for Section 2.2, Experiment 1. 
+We also added `time_pruning.ipynb` which includes code snippets we ran with Google Colab for Section 2.2, Experiment 1. This notebook includes code provided in the <a href="https://huggingface.co/blog/smolvlm"> Huggingface SmolVLM Blog </a>.
 
 # Original README for VLMEvalKit
 
