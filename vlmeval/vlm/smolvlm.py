@@ -35,6 +35,8 @@ class SmolVLM(BaseModel):
             # sorted and different per batch
             idx = torch.sort(torch.argsort(torch.rand(outputs.shape[0], outputs.shape[1], device=outputs.device), dim=-1)[:,:K], dim=-1).values
             pruned = torch.gather(input=outputs, dim=1, index=idx.unsqueeze(-1).expand(-1, -1, outputs.shape[-1]))
+            print(pruned.shape)
+            raise Exception
             return pruned
             
         vision_encoder = self.model.model.connector
