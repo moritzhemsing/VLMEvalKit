@@ -40,7 +40,8 @@ class SmolVLM(BaseModel):
             return pruned
             
         vision_encoder = self.model.model.connector
-        handle = vision_encoder.register_forward_hook(prune_visual_tokens_hook)
+        if retain < 1:
+            handle = vision_encoder.register_forward_hook(prune_visual_tokens_hook)
         
         kwargs_default = {"max_new_tokens": 2048, "use_cache": True}
         kwargs_default.update(kwargs)
