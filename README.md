@@ -3,7 +3,7 @@
 This Github repository is forked from https://github.com/open-compass/VLMEvalKit/tree/main. 
 
 Please refer to the Quickstart referenced below for instructions on how to run the code. 
-We made small modifications in run.py and vlmeval/vlm/smolvlm.py which are indicated by `#[PRUNING]` comments. 
+We made small modifications in run.py and vlmeval/vlm/smolvlm.py which are indicated by `# [PRUNING]` comments. 
 We introduced a new flag `--pruning retention` to specify the retention ratio in the command line (e.g., `python run.py --data MathVista_MINI --model SmolVLM-256M --work-dir smol --pruning_retention 0.9`.
 
 
