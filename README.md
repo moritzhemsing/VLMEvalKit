@@ -6,6 +6,9 @@ Please refer to the Quickstart referenced below for instructions on how to run t
 We made small modifications in run.py and vlmeval/vlm/smolvlm.py which are indicated by `# [PRUNING]` comments. 
 We introduced a new flag `--pruning retention` to specify the retention ratio in the command line (e.g., `python run.py --data MathVista_MINI --model SmolVLM-256M --work-dir smol --pruning_retention 0.9`.
 
+Some Benchmarks may require setting an commercial API Key in the `.env` file. The provided `OPENAI_API_KEY`is expired.
+
+We also added `time_pruning.ipynb` which includes code snippets we ran for Section 2.2, Experiment 1. 
 
 # Original README for VLMEvalKit
 
