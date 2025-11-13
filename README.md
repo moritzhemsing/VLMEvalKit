@@ -1,17 +1,18 @@
-# README <span style="color:blue">some *blue* text</span>.
+# README
 
-This Github repository is forked from https://github.com/open-compass/VLMEvalKit/tree/main. 
+**This Github repository is forked from https://github.com/open-compass/VLMEvalKit/tree/main.**
 
-Please refer to the Quickstart referenced below for instructions on how to run the code. 
+**Please refer to the Quickstart referenced below for instructions on how to run the code. 
 We made small modifications in run.py and vlmeval/vlm/smolvlm.py which are indicated by `# [PRUNING]` comments. 
-We introduced a new flag `--pruning retention` to specify the retention ratio in the command line (e.g., `python run.py --data MathVista_MINI --model SmolVLM-256M --work-dir smol --pruning_retention 0.9`.
+We introduced a new flag `--pruning retention` to specify the retention ratio in the command line (e.g., `python run.py --data MathVista_MINI --model SmolVLM-256M --work-dir smol --pruning_retention 0.9`.**
 
-Some Benchmarks may require setting an commercial API Key in the `.env` file. The provided `OPENAI_API_KEY`is expired.
+**Some Benchmarks may require setting an commercial API Key in the `.env` file. The provided `OPENAI_API_KEY`is expired.**
 
-We also added `time_pruning.ipynb` which includes code snippets we ran with Google Colab for Section 2.2, Experiment 1. 
-This notebook includes code provided in the <a href="https://huggingface.co/blog/smolvlm"> Huggingface SmolVLM Blog </a>.
+**We also added `time_pruning.ipynb` which includes code snippets we ran with Google Colab for Section 2.2, Experiment 1. 
+This notebook includes code provided in the <a href="https://huggingface.co/blog/smolvlm"> Huggingface SmolVLM Blog </a>.**
 
-The code used for Section 2.1 (Speculative Decoding) is provided in `VLM_simple.ipynb` and `VLM_dataset.ipynb`.
+**The code used for Section 2.1 (Speculative Decoding) is provided in `VLM_simple.ipynb` and `VLM_dataset.ipynb`.**
+
 
 # Original README for VLMEvalKit
 
