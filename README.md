@@ -11,6 +11,8 @@ Some Benchmarks may require setting an commercial API Key in the `.env` file. Th
 We also added `time_pruning.ipynb` which includes code snippets we ran with Google Colab for Section 2.2, Experiment 1. 
 This notebook includes code provided in the <a href="https://huggingface.co/blog/smolvlm"> Huggingface SmolVLM Blog </a>.
 
+The code used for Section 2.1 (Speculative Decoding) is provided in `VLM_simple.ipynb` and `VLM_dataset.ipynb`.
+
 # Original README for VLMEvalKit
 
 ![LOGO](http://opencompass.openxlab.space/utils/MMLB.jpg)
