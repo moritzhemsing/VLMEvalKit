@@ -1,4 +1,4 @@
-# README
+# README <span style="color:blue">some *blue* text</span>.
 
 This Github repository is forked from https://github.com/open-compass/VLMEvalKit/tree/main. 
 
